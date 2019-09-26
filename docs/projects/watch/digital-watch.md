@@ -209,11 +209,14 @@ input.onGesture(Gesture.Shake, () => {
             }
         }
     }
-    time = "" + adjust;
-    time = time + ":";
-    time = time + minutes / 10;
-    time = time + minutes % 10;
-})
+    time = "" + adjust
+    time = "" + time + ":"
+    if (minutes >= 10) {
+        time = "" + time + minutes
+    } else {
+        time = "" + time + "0"
+        time = "" + time + minutes
+}
 ```
 
 **Keep on coding...**
@@ -245,8 +248,11 @@ input.onGesture(Gesture.Shake, () => {
     }
     time = "" + adjust;
     time = time + ":"
-    time = time + minutes / 10
-    time = time + minutes % 10
+    if (minutes >= 10) {
+        time = "" + time + minutes
+    } else {
+        time = "" + time + "0"
+        time = "" + time + minutes
     if (ampm) {
         if (hours > 11) {
             time = time + "PM"
